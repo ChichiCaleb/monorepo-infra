@@ -110,7 +110,7 @@ Cal.com officially launched as v.1.0 on the 15th of September 2021 and we've com
 
 ### docker Setup Prerequisites
 
-Here is what you need to be able to run docker-ci-monorepo.
+Here is what you need to be able to run **docker-ci-monorepo**.
 
 - install Docker on your machine for local testing with docker compose
 - create a docker hub acccount to push your image
