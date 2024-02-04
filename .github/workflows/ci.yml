@@ -1,5 +1,5 @@
 ---
-name:  SDocker CI
+name:  Docker CI
 
 on:
   push:
@@ -43,6 +43,7 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password:  ${{ secrets.GITHUB_TOKEN }}
+          logout: false
 
       - name: Extract metadata for the Docker image
         id: docker_meta  
@@ -95,6 +96,7 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password:  ${{ secrets.GITHUB_TOKEN }}
+          logout: false
      
       - name: Build and unit-test
         uses: docker/build-push-action@v5
@@ -135,6 +137,7 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password:  ${{ secrets.GITHUB_TOKEN }}
+          logout: false
 
       - name: Downcase repo name
         run: |
@@ -182,6 +185,7 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password:  ${{ secrets.GITHUB_TOKEN }}
+          logout: false
 
       - name: Downcase repo name
         run: |
@@ -293,6 +297,7 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password:  ${{ secrets.GITHUB_TOKEN }}
+          logout: false
 
       - name: Docker Metadata for Final Image Build
         id: docker_meta
