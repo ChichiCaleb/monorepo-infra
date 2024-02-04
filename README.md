@@ -108,7 +108,7 @@ Cal.com officially launched as v.1.0 on the 15th of September 2021 and we've com
 
  please follow these simple steps.
 
-### Prerequisites
+### docker Setup Prerequisites
 
 Here is what you need to be able to run Cal.com.
 
@@ -142,10 +142,9 @@ Here is what you need to be able to run Cal.com.
 
 3. checkout a feature branch and push to the branch
 
-   ```sh
+  ```sh
   git checkout -b my-branch
   git push origin my-branch
-
   ```
   
 4. create a pull request to the main branch and observe a trigger of ci workflow in github actions tab,
