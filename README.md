@@ -106,26 +106,29 @@ Cal.com officially launched as v.1.0 on the 15th of September 2021 and we've com
 
 ## Getting Started
 
-To get a local copy up and running, please follow these simple steps.
+ please follow these simple steps.
 
 ### Prerequisites
 
 Here is what you need to be able to run Cal.com.
 
-- Node.js (Version: >=18.x)
-- PostgreSQL
-- Yarn _(recommended)_
+- install Docker on your machine for local testing with docker compose
+- create a docker hub acccount to push your image
+- create DOCKERHUB_USERNAME env on github using your dockerhub repo name to enable ci actions
+- create DOCKERHUB_TOKEN env on github using a generated token from your docker hub to enable ci actions
+- enable actions/read and write package in your github repo settings for ci actions
+
 
 > If you want to enable any of the available integrations, you may want to obtain additional credentials for each one. More details on this can be found below under the [integrations section](#integrations).
 
-## Development
 
-### Setup
 
-1. Clone the repo into a public GitHub repository (or fork https://github.com/calcom/cal.com/fork). If you plan to distribute the code, keep the source code public to comply with [AGPLv3](https://github.com/calcom/cal.com/blob/main/LICENSE). To clone in a private repository, [acquire a commercial license](https://cal.com/sales)
+### docker Setup
+
+1. Clone the repo into a public GitHub repository (or fork https://github.com/ChichiCaleb/docker-ci-monorepo/fork). If you plan to distribute the code, keep the source code public to comply with [AGPLv3](https://github.com/calcom/cal.com/blob/main/LICENSE). To clone in a private repository, [acquire a commercial license](https://cal.com/sales)
 
    ```sh
-   git clone https://github.com/calcom/cal.com.git
+   git clone https://github.com/ChichiCaleb/docker-ci-monorepo.git
    ```
 
    > If you are on Windows, run the following command on `gitbash` with admin privileges: <br> > `git clone -c core.symlinks=true https://github.com/calcom/cal.com.git` <br>
@@ -134,44 +137,40 @@ Here is what you need to be able to run Cal.com.
 2. Go to the project folder
 
    ```sh
-   cd cal.com
+   cd docker-ci-monorepo
    ```
 
-3. Install packages with yarn
+3. checkout a feature branch and push to the branch
 
    ```sh
-   yarn
-   ```
+  git checkout -b my-branch
+  git push origin my-branch
+  
+4. create a pull request to the main branch and observe a trigger of ci workflow in github actions tab,
+   this will create a pre-release note and generate a changelog with subsequent push to dockerhub
 
-4. Set up your `.env` file
+5. on a successful pull request, merge to the main and observe a trigger of ci workflow in github actions tab,
+   this will create a release note and generate a changelog with subsequent push to dockerhub
 
-   - Duplicate `.env.example` to `.env`
-   - Use `openssl rand -base64 32` to generate a key and add it under `NEXTAUTH_SECRET` in the `.env` file.
-   - Use `openssl rand -base64 32` to generate a key and add it under `CALENDSO_ENCRYPTION_KEY` in the `.env` file.
 
-5. Setup Node
-   If your Node version does not meet the project's requirements as instructed by the docs, "nvm" (Node Version Manager) allows using Node at the version required by the project:
+6. ensure to use conventional commit recommended  pattern for automated semantic versioining
+   
+   [conventionalcommits](https://www.conventionalcommits.org/en/v1.0.0/)
+   
+
+7. update your pushed image name in your docker compose file
+
+8. Set up your `.env` file 
+
+   - Duplicate `.env.example` to `.env` in infra/docker/web and configure appropriately
+  
+  
+9. start the services in docker compose
 
    ```sh
-   nvm use
+   docker compose -f infra/docker/web up
    ```
 
-   You first might need to install the specific version and then use it:
-
-   ```sh
-   nvm install && nvm use
-   ```
-
-   You can install nvm from [here](https://github.com/nvm-sh/nvm).
-
-#### Quick start with `yarn dx`
-
-> - **Requires Docker and Docker Compose to be installed**
-> - Will start a local Postgres instance with a few test users - the credentials will be logged in the console
-
-```sh
-yarn dx
-```
 
 #### Development tip
 
@@ -352,17 +351,6 @@ Executable doesn't exist at /Users/alice/Library/Caches/ms-playwright/chromium-1
 
 ## Deployment
 
-### Docker
-
-The Docker configuration for Cal.com is an effort powered by people within the community.
-
-If you want to contribute to the Docker repository, [reply here](https://github.com/calcom/docker/discussions/32).
-
-The Docker configuration can be found [in our docker repository](https://github.com/calcom/docker).
-
-Issues with Docker? Find your answer or open a new discussion [here](https://github.com/calcom/docker/discussions) to ask the community.
-
-Cal.com, Inc. does not provide official support for Docker, but we will accept fixes and documentation. Use at your own risk.
 
 ### Railway
 
