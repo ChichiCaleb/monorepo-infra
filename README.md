@@ -131,7 +131,7 @@ Here is what you need to be able to run Cal.com.
    git clone https://github.com/ChichiCaleb/docker-ci-monorepo.git
    ```
 
-   > If you are on Windows, run the following command on `gitbash` with admin privileges: <br> > `git clone -c core.symlinks=true https://github.com/calcom/cal.com.git` <br>
+   > If you are on Windows, run the following command on `gitbash` with admin privileges: <br> > `git clone -c core.symlinks=true https://github.com/ChichiCaleb/docker-ci-monorepo.git` <br>
    > See [docs](https://cal.com/docs/how-to-guides/how-to-troubleshoot-symbolic-link-issues-on-windows#enable-symbolic-links) for more details.
 
 2. Go to the project folder
@@ -145,6 +145,8 @@ Here is what you need to be able to run Cal.com.
    ```sh
   git checkout -b my-branch
   git push origin my-branch
+
+  ```
   
 4. create a pull request to the main branch and observe a trigger of ci workflow in github actions tab,
    this will create a pre-release note and generate a changelog with subsequent push to dockerhub
