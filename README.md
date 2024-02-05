@@ -116,7 +116,21 @@ Here is what you need to be able to run **monorepo-infra**.
 - create a docker hub acccount to push your image
 - create DOCKERHUB_USERNAME env on github using your dockerhub repo name to enable ci actions
 - create DOCKERHUB_TOKEN env on github using a generated token from your docker hub to enable ci actions
-- enable actions/read and write package in your github repo settings for ci actions
+
+- In repo settings under actions enable:
+    - Read and write permissions
+  
+- create a github Personal access Token and add as repo secret with the name RELEASE_MAIN for automated 
+  changelog generation and release notes
+  this is needed as against GITHUB_TOKEN inorder to be able to update protected branch
+  enable the following options while creating the token:
+    - Repo
+    - workflow
+    - write package
+    - admin:org
+   
+- If your main branch is protected, In repo settings under rules enable:
+   - repository admin bypass list
 
 
 > If you want to enable any of the available integrations, you may want to obtain additional credentials for each one. More details on this can be found below under the [integrations section](#integrations).
