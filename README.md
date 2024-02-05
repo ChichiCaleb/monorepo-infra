@@ -110,7 +110,7 @@ Cal.com officially launched as v.1.0 on the 15th of September 2021 and we've com
 
 ### docker Setup Prerequisites
 
-Here is what you need to be able to run **docker-ci-monorepo**.
+Here is what you need to be able to run **docker-ci-turborepo**.
 
 - install Docker on your machine for local testing with docker compose
 - create a docker hub acccount to push your image
@@ -125,10 +125,10 @@ Here is what you need to be able to run **docker-ci-monorepo**.
 
 ### docker Setup
 
-1. Clone the repo into a public GitHub repository (or fork https://github.com/ChichiCaleb/docker-ci-monorepo/fork). If you plan to distribute the code, keep the source code public to comply with [AGPLv3](https://github.com/calcom/cal.com/blob/main/LICENSE). To clone in a private repository, [acquire a commercial license](https://cal.com/sales)
+1. Clone the repo into a public GitHub repository (or fork https://github.com/ChichiCaleb/docker-ci-turborepo/fork). If you plan to distribute the code, keep the source code public to comply with [AGPLv3](https://github.com/calcom/cal.com/blob/main/LICENSE). To clone in a private repository, [acquire a commercial license](https://cal.com/sales)
 
    ```sh
-   git clone https://github.com/ChichiCaleb/docker-ci-monorepo.git
+   git clone https://github.com/ChichiCaleb/docker-ci-turborepo.git
    ```
 
    > If you are on Windows, run the following command on `gitbash` with admin privileges: <br> > `git clone -c core.symlinks=true https://github.com/ChichiCaleb/docker-ci-monorepo.git` <br>
@@ -137,7 +137,7 @@ Here is what you need to be able to run **docker-ci-monorepo**.
 2. Go to the project folder
 
    ```sh
-   cd docker-ci-monorepo
+   cd docker-ci-turborepo
    ```
 
 3. checkout a feature branch and push to the branch
