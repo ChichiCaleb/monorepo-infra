@@ -43,7 +43,7 @@ module.exports = {
       },
     ],
     "prefer-template": "error",
-    'prettier/prettier': [   'warn',   {
+    "prettier/prettier": [   'warn',   {
       endOfLine: 'auto',
     },
   ],
