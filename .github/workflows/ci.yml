@@ -223,6 +223,8 @@ jobs:
       TAG: ${{ steps.docker_tag.outputs.TAG }}
     permissions:
       contents: write
+      pull-requests: write
+      repository-projects: write
 
     steps:
       - name: check out the repository with all releases
