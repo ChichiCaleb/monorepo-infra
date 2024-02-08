@@ -1,5 +1,3 @@
-// @ts-check
-
 const { exitOrThrowError, printValidatedEnv } = require("./utils");
 
 /**
@@ -9,7 +7,7 @@ const { exitOrThrowError, printValidatedEnv } = require("./utils");
  * exit/die with an error indicating missing requirements
  *
 */
-const getValidatedBuildEnv = (zodSchema:any, options = {}) => {
+const getValidatedBuildEnv = (zodSchema, options = {}) => {
   const { env = process.env, displayConsole = true } = options ?? {};
   const parsedEnv = zodSchema.safeParse(env);
   if (parsedEnv.success) {

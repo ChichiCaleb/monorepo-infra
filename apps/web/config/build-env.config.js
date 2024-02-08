@@ -1,5 +1,3 @@
-// @ts-check
-
 const { z } = require("zod");
 const {getValidatedBuildEnv} = require("./getValidatedBuildEnv");
 

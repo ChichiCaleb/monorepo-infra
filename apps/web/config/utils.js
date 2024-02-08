@@ -1,5 +1,3 @@
-// @ts-check
-
 const pc = require ("picocolors");
 
 
