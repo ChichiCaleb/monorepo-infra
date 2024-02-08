@@ -1,6 +1,6 @@
 // @ts-check
 
-import { exitOrThrowError, printValidatedEnv } from './utils';
+const { exitOrThrowError, printValidatedEnv } = require("./utils");
 
 /**
  * Return a validated / transformed environment object from a zodSchema
@@ -10,10 +10,10 @@ import { exitOrThrowError, printValidatedEnv } from './utils';
  * multiple deployments (previews, staging...) to give a clear indication a build parameters
  * used (or debug).
  *
- * @template { import('zod').ZodSchema } T
+ * @template { require('zod').ZodSchema } T
  * @param { T } zodSchema
  * @param {{ displayConsole?: boolean, env?: Record<string, string | undefined> }} options
- * @returns { import('zod').infer<T> }
+ * @returns { require('zod').infer<T> }
  */
 export const getValidatedBuildEnv = (zodSchema, options = {}) => {
   const { env = process.env, displayConsole = true } = options ?? {};

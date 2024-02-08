@@ -1,7 +1,7 @@
 // @ts-check
 
-import { z } from 'zod';
-import {getValidatedBuildEnv} from './getValidatedBuildEnv';
+const { z } = require("zod");
+const {getValidatedBuildEnv} = require("./getValidatedBuildEnv");
 
 
 const schema = {
