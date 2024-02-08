@@ -26,6 +26,6 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "config/utils.js", "config/getValidatedBuildEnv.js", "config/build-env.config.js"  ],
   "exclude": ["node_modules"]
 }
