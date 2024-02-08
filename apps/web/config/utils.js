@@ -7,9 +7,6 @@ const isRunningInNode = process !== undefined;
 const isTestEnv = process.env.NODE_ENV === 'test';
 
 
-/**
- * @type {(zodSafeParseError: require('zod').SafeParseError<unknown>) => never}
- */
 const exitOrThrowError = (zodSafeParseError) => {
   if (isRunningInNode && !isTestEnv) {
     console.error(
@@ -29,9 +26,7 @@ const exitOrThrowError = (zodSafeParseError) => {
   }
 };
 
-/**
- * @type {(section: 'Build env(s)' | 'Server env(s)', zodSafeParseSuccess: require('zod').SafeParseSuccess<any>) => void}
- */
+
  const printValidatedEnv = (section, zodSafeParseSuccess) => {
   if (isRunningInNode && !isTestEnv) {
     const prefix = pc.cyan('- info'.padEnd(7));
@@ -41,6 +36,5 @@ const exitOrThrowError = (zodSafeParseError) => {
     }
   }
 };
-
 
 module.exports = { exitOrThrowError, printValidatedEnv };
