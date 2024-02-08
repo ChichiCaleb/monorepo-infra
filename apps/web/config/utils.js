@@ -1,26 +1,16 @@
 // @ts-check
 
 const pc = require ("picocolors");
-const { z } = require("zod");
+
 
 const isRunningInNode = process !== undefined;
 const isTestEnv = process.env.NODE_ENV === 'test';
 
-export const truthyStrEnvValue = ['true', '1'];
-
-/**
- * Allow to convert truthy string ('1', 'true') values to boolean
- */
-export const zConvertTruthyStrToBool = (defaultValue = false) =>
-  z.preprocess((val) => {
-    if (val === undefined) return defaultValue;
-    return truthyStrEnvValue.includes(String(val));
-  }, z.boolean());
 
 /**
  * @type {(zodSafeParseError: require('zod').SafeParseError<unknown>) => never}
  */
-export const exitOrThrowError = (zodSafeParseError) => {
+const exitOrThrowError = (zodSafeParseError) => {
   if (isRunningInNode && !isTestEnv) {
     console.error(
       '- ' + pc.red('error'.padEnd(7)).concat('Invalid server env(s):'),
@@ -42,7 +32,7 @@ export const exitOrThrowError = (zodSafeParseError) => {
 /**
  * @type {(section: 'Build env(s)' | 'Server env(s)', zodSafeParseSuccess: require('zod').SafeParseSuccess<any>) => void}
  */
-export const printValidatedEnv = (section, zodSafeParseSuccess) => {
+ const printValidatedEnv = (section, zodSafeParseSuccess) => {
   if (isRunningInNode && !isTestEnv) {
     const prefix = pc.cyan('- info'.padEnd(7));
     console.info(prefix.concat(`${section} validation successful:`));
@@ -51,3 +41,6 @@ export const printValidatedEnv = (section, zodSafeParseSuccess) => {
     }
   }
 };
+
+
+module.exports = { exitOrThrowError, printValidatedEnv };

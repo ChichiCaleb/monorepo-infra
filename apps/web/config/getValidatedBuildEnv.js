@@ -15,7 +15,7 @@ const { exitOrThrowError, printValidatedEnv } = require("./utils");
  * @param {{ displayConsole?: boolean, env?: Record<string, string | undefined> }} options
  * @returns { require('zod').infer<T> }
  */
-export const getValidatedBuildEnv = (zodSchema, options = {}) => {
+const getValidatedBuildEnv = (zodSchema, options = {}) => {
   const { env = process.env, displayConsole = true } = options ?? {};
   const parsedEnv = zodSchema.safeParse(env);
   if (parsedEnv.success) {
@@ -26,3 +26,5 @@ export const getValidatedBuildEnv = (zodSchema, options = {}) => {
   }
   exitOrThrowError(parsedEnv);
 };
+
+module.exports = { getValidatedBuildEnv };

@@ -13,6 +13,9 @@ const schema = {
     .default('classic')
 };
 
-export const buildEnvSchema = z.object(schema);
 
-export const buildEnv = getValidatedBuildEnv(buildEnvSchema);
+const buildEnvSchema = z.object(schema);
+const buildEnv = getValidatedBuildEnv(buildEnvSchema);
+
+
+module.exports = { buildEnvSchema, buildEnv };
